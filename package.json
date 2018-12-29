@@ -1,0 +1,30 @@
+{
+  "name": "raspi-bot-controller",
+  "version": "1.0.0",
+  "description": "Node application that takes input from joysticks connected to an arduino and sends that input to a remote server to control raspi-bot.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoroloco/raspi-bot-controller.git"
+  },
+  "keywords": [
+    "raspi-bot",
+    "robot",
+    "joystick",
+    "arduino",
+    "node"
+  ],
+  "author": "Kenneth Centurion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoroloco/raspi-bot-controller/issues"
+  },
+  "homepage": "https://github.com/zoroloco/raspi-bot-controller#readme",
+  "dependencies": {
+    "winston": "^3.1.0",
+    "underscore": "^1.9.1"
+  }
+}

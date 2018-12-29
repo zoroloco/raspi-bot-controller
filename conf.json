@@ -1,0 +1,8 @@
+{ "title" : "raspi-bot-controller",
+  "remote_host" : "raspi-bot",
+  "remote_port" : 7482,
+  "logger" : {
+    "enabled" : true,
+    "dir"     : "logs"
+  }
+}
