@@ -7,10 +7,12 @@ import getopt
 import serial
 import json
 import urllib2
+import requests
 from sys import stdin
 
 device = '' # /dev/ttyACM0
 baud   = '' #9600
+remoteHost = 'http://192.168.1.237:7482'
 
 #serialIn thread
 class serialIn (threading.Thread):
@@ -51,6 +53,7 @@ def connect(threadName,device,baud):
         if arduino:
             sys.stdout.write("{SERIALPY:CONNECTED-"+threadName+"}")
             sys.stdout.flush()
+            postConnect()
             return arduino
         else:
             sys.stderr.write(threadName+"Error with call to serial.Serial during connection.")
@@ -88,12 +91,24 @@ def receiveData(arduino):
 
 
 #POST to remote server
+#Convert 1:3400 -> servo:1,pos:3400
 def postData(cmd):
-    data = {'cmd':cmd}
-    req = urllib2.Request('http://192.168.1.237:7482/move')
-    req.add_header('Content-Type', 'application/json')
-    response = urllib2.urlopen(req, json.dumps(data))
+    if(cmd is not None):
+      cmd = cmd.replace('\r\n','')
+      splitStr = cmd.split(':')
+      if(splitStr is not None and len(splitStr) > 1):
+        if(splitStr[0].isdigit() and splitStr[1].isdigit()):
+          data = {'servo':splitStr[0],'pos':splitStr[1]}
+          req = urllib2.Request(remoteHost+ '/move')
+          req.add_header('Content-Type', 'application/json')
+          response = urllib2.urlopen(req, json.dumps(data))
 
+
+def postConnect():
+    r = requests.get(url=remoteHost+ '/connect')
+
+def postDisconnect():
+    r = requests.get(url=remoteHost+ '/disconnect')
 
 #start
 try:

@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52b4fb72-583c-4082-8624-a356fb35cd28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arduino.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/joystick.ino" beforeDir="false" afterPath="$PROJECT_DIR$/joystick.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspybotController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/shell/raspibotControllerService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/shell/raspy-clean-build.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/shell/raspy-run.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/shell/raspy-update.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/shell/raspy.service" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joy.py" beforeDir="false" afterPath="$PROJECT_DIR$/joy.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,16 +26,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="joy.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="joy.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/joy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="288">
+              <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
@@ -168,18 +155,17 @@
       <workItem from="1546116305602" duration="617000" />
       <workItem from="1546151141957" duration="913000" />
       <workItem from="1546191870623" duration="914000" />
-      <workItem from="1546196892687" duration="983000" />
+      <workItem from="1546196892687" duration="1633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9811000" />
+    <option name="totallyTimeSpent" value="10461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -188,7 +174,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32991204" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.17741935" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25953078" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -438,17 +424,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/joy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
         </state>
       </provider>
     </entry>
