@@ -48,8 +48,6 @@ void loop() {
       Serial.println(j1YLabel+mapPosition(j1yCurrent));
       j1yLast = j1yCurrent;
   }
-
-  delay(300); //to not flood http!
 }
 
 //Joystick range is [0-1023]. This must map to servo range of [3000-9000]

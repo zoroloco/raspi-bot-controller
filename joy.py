@@ -58,8 +58,9 @@ def connect(threadName,device,baud):
         else:
             sys.stderr.write(threadName+"Error with call to serial.Serial during connection.")
             return None
-    except:
+    except Exception as e:
         sys.stderr.write(threadName+": Error opening serial port.\n")
+        print(e)
 
     return None
 
@@ -77,15 +78,23 @@ def sendData(arduino):
             return 1
 
 #RX - data received from the arduino.
+#only post data every 800ms at most so http won't be flooded.
 def receiveData(arduino):
-    while 1:
-        try:
+    msIntervalThreshold = 800
+    last = datetime.datetime.now()
+    while(arduino.in_waiting >0):
+        now = datetime.datetime.now()
+        diff = now - last
+        ms = diff.total_seconds() * 1000
+        if(ms > msIntervalThreshold):
+          try:
             input = arduino.readline()
             if(input is not None):
                 postData(input)
                 sys.stdout.write(input)
                 sys.stdout.flush()
-        except serial.SerialException:
+                last = datetime.datetime.now()
+          except serial.SerialException:
             sys.stderr.write("Serial exception while reading. Port probably closed.")
             return 1
 
