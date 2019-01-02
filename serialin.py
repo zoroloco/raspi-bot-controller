@@ -18,7 +18,7 @@ class SerialIn(SerialBase):
                 data = self.arduino.readline()
                 if data is not None:
                     self.datahandler.process_input_data(data)
-                    sys.stdout.write(data)
+                    #  sys.stdout.write(data)
                     sys.stdout.flush()
             except serial.SerialException:
                 sys.stderr.write("Serial exception while reading. Port probably closed.")

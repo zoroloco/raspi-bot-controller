@@ -10,11 +10,14 @@ class SerialBase(threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = thread_id
         self.name = name
-        self.arduino = super.connect_to_device(self.name, device, baud)
+        self.arduino = None
+        self.connect_to_device(self.name, device, baud)
 
     def connect_to_device(self, thread_name, device, baud):
         try:
-            self.arduino = serial.Serial(device, baud, timeout=0)
+            self.arduino = serial.Serial(device, baud, timeout=1)
+            self.arduino.flushInput()
+            self.arduino.flushOutput()
             if self.arduino:
                 sys.stdout.write("{SERIALPY:CONNECTED-" + thread_name + "}")
                 sys.stdout.flush()

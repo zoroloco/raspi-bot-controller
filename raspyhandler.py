@@ -28,15 +28,13 @@ class RaspyHandler:
     # Action after data is received from the Arduino.
     # data = "1:3500"
     def process_input_data(self, data):
-        cmd = data.replace('\r\n', '').split(':')
+        cmd = data.split(':')
         if cmd is not None and len(cmd) > 1:
             servo = cmd[0]
             pos = cmd[1]
             if servo.isdigit() and pos.isdigit():
-                if self.servos.get(servo).update_state(pos):  # only post the new position if state changed
+                if self.servos.get(int(servo)).update_state(int(pos)):  # only post the new position if state changed
                     self.post_data(servo, pos)
-            else:
-                sys.stderr.write("Servo and Position input need to be numbers.")
 
     # POST to remote server
     @staticmethod

@@ -13,6 +13,7 @@ class JoyAxis:
     # Return true if state updated. State not updated if direction changed without first originating at neutral.
     # The above logic is done to simulate a real joystick movement.
     def update_state(self, cur_pos):
+        print("Current position = ", cur_pos)
         if self.last_pos == -1:
             self.last_pos = cur_pos
 
@@ -26,12 +27,14 @@ class JoyAxis:
             self.move_backward = False
             self.neutral_reset = False
             self.last_pos = cur_pos
+            print("Moved forward to:", cur_pos)
             return True
         elif(cur_pos - self.last_pos < 0) and (self.move_backward or self.neutral_reset):
             self.move_backward = True
             self.move_forward = False
             self.neutral_reset = False
             self.last_pos = cur_pos
+            print("Moved backward to:", cur_pos)
             return True
 
         return False

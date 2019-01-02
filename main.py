@@ -25,13 +25,13 @@ if not baud or not device:
     sys.exit(2)
 
 # Spawn two threads. One for reading data from Arduino and the other to write data to Arduino.
-serialInThread = SerialIn(1, "SerialIn")
+serialInThread = SerialIn(1, "SerialIn", device, baud)
 if serialInThread:
     serialInThread.start()
 else:
     sys.stderr.write("Error starting thread serialIn\n")
 
-serialOutThread = SerialOut(2, "SerialOut")
+serialOutThread = SerialOut(2, "SerialOut", device, baud)
 if serialOutThread:
     serialOutThread.start()
 else:
