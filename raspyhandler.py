@@ -3,7 +3,6 @@
 import json
 import urllib2
 import requests
-import sys
 from joyaxis import JoyAxis
 
 remoteHost = 'http://192.168.1.237:7482'
@@ -39,15 +38,24 @@ class RaspyHandler:
     # POST to remote server
     @staticmethod
     def post_data(servo, pos):
-        data = {'servo': servo, 'pos': pos}
-        req = urllib2.Request(remoteHost + '/move')
-        req.add_header('Content-Type', 'application/json')
-        urllib2.urlopen(req, json.dumps(data))
+        try:
+            data = {'servo': servo, 'pos': pos}
+            req = urllib2.Request(remoteHost + '/move')
+            req.add_header('Content-Type', 'application/json')
+            urllib2.urlopen(req, json.dumps(data))
+        except BaseException as e:
+            print("Error sending post data to remote host:", e)
 
     @staticmethod
     def post_connect():
-        requests.get(url=remoteHost + '/connect')
+        try:
+            requests.get(url=remoteHost + '/connect')
+        except BaseException as e:
+            print("Error sending connect to remote host:", e)
 
     @staticmethod
     def post_disconnect():
-        requests.get(url=remoteHost + '/disconnect')
+        try:
+            requests.get(url=remoteHost + '/disconnect')
+        except BaseException as e:
+            print("Error sending disconnect to remote host:", e)

@@ -20,8 +20,9 @@ class SerialIn(SerialBase):
                     self.datahandler.process_input_data(data)
                     #  sys.stdout.write(data)
                     sys.stdout.flush()
-            except serial.SerialException:
+            except serial.SerialException as e:
                 sys.stderr.write("Serial exception while reading. Port probably closed.")
+                print(e)
                 return 1
 
     def run(self):
