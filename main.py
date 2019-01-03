@@ -4,6 +4,7 @@ import sys
 import getopt
 from serialin import SerialIn
 from serialout import SerialOut
+import signal
 
 
 # Start by reading the command line arguments.
@@ -13,6 +14,13 @@ except getopt.GetoptError:
     sys.stderr.write("Invalid commandline argument.\n")
     sys.exit(2)
 
+
+def signal_handler(sig, frame):
+    print('You pressed Ctrl+C! Bye!')
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 for opt, arg in opts:
     if opt in ('--device', 'd'):
