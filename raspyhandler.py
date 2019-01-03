@@ -11,13 +11,13 @@ remoteHost = 'http://192.168.1.237:7482'
 class RaspyHandler:
     def __init__(self):
         self.servos = {
-            0: JoyAxis(),  # elbow
-            1: JoyAxis(),  # head pan
-            3: JoyAxis(),  # head tilt
-            4: JoyAxis(),  # shoulder
-            5: JoyAxis(),  # base
-            6: JoyAxis(),  # hand
-            7: JoyAxis()  # wrist
+            0: JoyAxis(0),  # elbow
+            1: JoyAxis(1),  # head pan
+            3: JoyAxis(3),  # head tilt
+            4: JoyAxis(4),  # shoulder
+            5: JoyAxis(5),  # base
+            6: JoyAxis(6),  # hand
+            7: JoyAxis(7)  # wrist
         }
 
     # Action after connection is made to the Arduino.

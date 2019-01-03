@@ -4,7 +4,8 @@
 
 
 class JoyAxis:
-    def __init__(self):
+    def __init__(self, servo):
+        self.servo = servo
         self.last_pos = -1
         self.move_forward = False
         self.move_backward = False
@@ -26,13 +27,13 @@ class JoyAxis:
             if not self.move_backward and not in_neutral_zone:
                 self.move_forward = True
                 self.last_pos = cur_pos
-                print("Moved forward to:", cur_pos)
+                print("Moved forward to:" + self.servo + ":" + cur_pos)
                 return True
         elif pos_diff < 0:
             if not self.move_forward and not in_neutral_zone:
                 self.move_backward = True
                 self.last_pos = cur_pos
-                print("Moved backward to:", cur_pos)
+                print("Moved backward to:" + self.servo + ":" + cur_pos)
                 return True
 
         return False
