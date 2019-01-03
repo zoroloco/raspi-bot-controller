@@ -28,7 +28,7 @@ class RaspyHandler:
     # Action after data is received from the Arduino.
     # data = "1:3500"
     def process_input_data(self, data):
-        cmd = data.split(':')
+        cmd = data.replace('\r\n', '').split(':')
         if cmd is not None and len(cmd) > 1:
             servo = cmd[0]
             pos = cmd[1]
