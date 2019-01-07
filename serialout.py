@@ -15,10 +15,10 @@ class SerialOut(SerialBase):
                 cmd = (sys.stdin.readline()).encode('utf-8')
                 self.arduino.write(cmd)
             except serial.SerialException:
-                sys.stderr.write("Serial exception while writing. Port probably closed.")
+                sys.stderr.write("Serial-Out exception while writing. Port probably closed.")
                 return 1
             except serial.SerialTimeoutException:
-                sys.stderr.write("Serial timeout exception while writing.")
+                sys.stderr.write("Serial-Out timeout exception while writing.")
                 return 1
 
     def run(self):

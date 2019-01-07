@@ -21,7 +21,7 @@ class SerialIn(SerialBase):
                     #  sys.stdout.write(data)
                     sys.stdout.flush()
             except serial.SerialException as e:
-                sys.stderr.write("Serial exception while reading. Port probably closed.")
+                sys.stderr.write("Serial-In exception while reading. Port probably closed.")
                 print(e)
                 return 1
 

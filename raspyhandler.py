@@ -9,7 +9,9 @@ remoteHost = 'http://192.168.1.237:7482'
 
 
 class RaspyHandler:
+
     def __init__(self):
+        self.post_it = False  # Used for debugging to bypass remote host call.
         self.servos = {
             0: JoyAxis(0),  # elbow
             1: JoyAxis(1),  # head pan
@@ -22,7 +24,8 @@ class RaspyHandler:
 
     # Action after connection is made to the Arduino.
     def process_init(self):
-        self.post_connect()
+        if self.post_it:
+            self.post_connect()
 
     # Action after data is received from the Arduino.
     # data = "1:3500"
@@ -32,13 +35,15 @@ class RaspyHandler:
             servo = cmd[0]
             pos = cmd[1]
             if servo.isdigit() and pos.isdigit():
-                self.post_data(servo, self.servos.get(int(servo)).update_state(int(pos)))
+                servo_pos = self.servos.get(int(servo)).update_state(int(pos))
+                if self.post_it:
+                    self.post_data(servo, servo_pos)
 
     # POST to remote server
     @staticmethod
     def post_data(servo, pos):
         try:
-            data = {'servo': servo, 'pos': pos}
+            data = {'servo': int(servo), 'pos': int(pos)}
             req = urllib2.Request(remoteHost + '/move')
             req.add_header('Content-Type', 'application/json')
             urllib2.urlopen(req, json.dumps(data))

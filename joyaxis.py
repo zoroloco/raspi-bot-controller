@@ -4,7 +4,7 @@ import datetime
 
 
 class JoyAxis:
-    user_move_time_threshold_ms = 1200  # 1.2 seconds of constant user movement.
+    user_move_time_threshold_ms = 1800  # 1.2 seconds of constant user movement.
     servo_min_pos = 3000
     servo_max_pos = 9000
     degree = 33.3  # 33.3 in the [3000-9000] range is = to 1 degree in the [0-180] range.
@@ -28,7 +28,7 @@ class JoyAxis:
 
             in_neutral_zone = JoyAxis.neutral_low < cur_pos < JoyAxis.neutral_high
 
-            if self.pos is -1:
+            if self.pos is -1:  # first time.
                 self.pos = cur_pos
 
             if in_neutral_zone:
@@ -44,7 +44,7 @@ class JoyAxis:
                         self.single_toggle_done = True
                         if self.pos < JoyAxis.servo_max_pos:  # max bounds check.
                             self.pos += JoyAxis.move_precision
-                            print("Moved forward to:" + self.servo + ":" + cur_pos)
+                            print("Moved forward to:" + str(self.servo) + ":" + str(self.pos))
             elif cur_pos < JoyAxis.neutral_low:  # if in backward position.
                 if not self.move_forward and not in_neutral_zone:
                     self.move_backward = True
@@ -52,7 +52,7 @@ class JoyAxis:
                         self.single_toggle_done = True
                         if self.pos > JoyAxis.servo_min_pos:  # min bounds check.
                             self.pos -= JoyAxis.move_precision
-                            print("Moved backward to:" + self.servo + ":" + cur_pos)
+                            print("Moved backward to:" + str(self.servo) + ":" + str(self.pos))
 
         return self.pos
 
