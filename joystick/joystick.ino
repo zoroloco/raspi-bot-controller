@@ -43,13 +43,16 @@ void loop() {
   //Serial.println(j2YLabel+mapPosition(analogRead(j2y)));//5871
   //Serial.println(j3XLabel+mapPosition(analogRead(j3x)));
   //Serial.println(j3YLabel+mapPosition(analogRead(j3y)));
-  
+
   int j1xCurrent = mapPosition(analogRead(j1x));
   if(j1xCurrent > 5965){
     Serial.println(j1XLabel+"1");
   }
   else if(j1xCurrent < 5952){
     Serial.println(j1XLabel+"0");
+  }
+  else{
+    Serial.println(j1XLabel+"-1");
   }
 
   int j1yCurrent = mapPosition(analogRead(j1y));
@@ -59,6 +62,9 @@ void loop() {
   else if(j1yCurrent < 6018){
     Serial.println(j1YLabel+"0");   
   }
+  else{
+    Serial.println(j1YLabel+"-1");
+  }
  
   int j2xCurrent = mapPosition(analogRead(j2x));
   if(j2xCurrent > 6065){
@@ -67,6 +73,9 @@ void loop() {
   else if(j2xCurrent < 6040){
     Serial.println(j2XLabel+"0");  
   }
+  else{
+    Serial.println(j2XLabel+"-1");
+  }
   
   int j2yCurrent = mapPosition(analogRead(j2y));
   if(j2yCurrent > 5880){
@@ -74,6 +83,9 @@ void loop() {
   }
   else if(j2yCurrent < 5860){
     Serial.println(j2YLabel+"0"); 
+  }
+  else{
+    Serial.println(j2YLabel+"-1");
   }
 
 /*

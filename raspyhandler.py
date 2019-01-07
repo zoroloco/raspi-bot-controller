@@ -11,7 +11,7 @@ remoteHost = 'http://192.168.1.237:7482'
 class RaspyHandler:
 
     def __init__(self):
-        self.post_it = False  # Used for debugging to bypass remote host call.
+        self.post_it = True  # Used for debugging to bypass remote host call.
         self.servos = {
             0: JoyAxis(0),  # elbow
             1: JoyAxis(1),  # head pan
