@@ -57,7 +57,7 @@ void loop() {
       Serial.println(j1YLabel+mapPosition(j1yCurrent));
       j1yLast = j1yCurrent;
   }
-
+  
   int j2xCurrent = analogRead(j2x);
   if(abs(j2xLast-j2xCurrent) > changeThreshold){
       Serial.println(j2XLabel+mapPosition(j2xCurrent));
@@ -69,7 +69,7 @@ void loop() {
       Serial.println(j2YLabel+mapPosition(j2yCurrent));
       j2yLast = j2yCurrent;
   }
-
+  
   int j3xCurrent = analogRead(j3x);
   if(abs(j3xLast-j3xCurrent) > changeThreshold){
       Serial.println(j3XLabel+mapPosition(j3xCurrent));
@@ -81,6 +81,7 @@ void loop() {
       Serial.println(j3YLabel+mapPosition(j3yCurrent));
       j3yLast = j3yCurrent;
   }
+  
 }
 
 //Joystick range is [0-1023]. This must map to servo range of [3000-9000]

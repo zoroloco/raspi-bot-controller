@@ -32,8 +32,7 @@ class RaspyHandler:
             servo = cmd[0]
             pos = cmd[1]
             if servo.isdigit() and pos.isdigit():
-                if self.servos.get(int(servo)).update_state(int(pos)):  # only post the new position if state changed
-                    self.post_data(servo, pos)
+                self.post_data(servo, self.servos.get(int(servo)).update_state(int(pos)))
 
     # POST to remote server
     @staticmethod
