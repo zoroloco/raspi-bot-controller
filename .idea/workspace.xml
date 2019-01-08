@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52b4fb72-583c-4082-8624-a356fb35cd28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/joyaxis.py" beforeDir="false" afterPath="$PROJECT_DIR$/joyaxis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joystick/joystick.ino" beforeDir="false" afterPath="$PROJECT_DIR$/joystick/joystick.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspyhandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspyhandler.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/joyaxis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="227">
+              <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -155,8 +153,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="joy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.joy-left-usb">
+    <configuration name="joy-left-usb" type="PythonConfigurationType" factoryName="Python">
+      <module name="raspi-bot-controller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="--device /dev/tty.usbmodem1411 --baud 9600" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="joy-right-usb" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="raspi-bot-controller" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -177,9 +196,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.joy-right-usb" />
+      <item itemvalue="Python.joy-left-usb" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.joy" />
+        <item itemvalue="Python.joy-right-usb" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +240,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29985857" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.25176802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -371,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/joyaxis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="227">
+          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
         </state>
       </provider>
     </entry>

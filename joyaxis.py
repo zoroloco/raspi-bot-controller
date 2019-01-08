@@ -4,7 +4,7 @@ import datetime
 
 
 class JoyAxis:
-    move_time_threshold_ms = 200  # Threshold of time in ms to act upon since last move.
+    move_time_threshold_ms = 0  # Threshold of time in ms to act upon since last move.
     servo_min_pos = 3000
     servo_max_pos = 9000
     HIGH = 1
@@ -15,26 +15,19 @@ class JoyAxis:
     def __init__(self, servo):
         self.servo = servo
         self.pos = -1  # The position of the servo.
-        self.last_move_dt = datetime.datetime.now()
 
     #  cur_pos = 0 for LOW or 1 for HIGH
     def update_state(self, cur_pos):
-        cur_move_dt = datetime.datetime.now()
         if cur_pos is not None:
 
             if self.pos == -1:
                 self.pos = 6000  # Reset to center at first.
 
-            move_diff_ms = int((cur_move_dt - self.last_move_dt).total_seconds()) * 1000
-
-            if move_diff_ms > JoyAxis.move_time_threshold_ms:
-                if cur_pos == JoyAxis.HIGH and self.pos < JoyAxis.servo_max_pos:
-                    self.pos += JoyAxis.move_precision
-                    self.last_move_dt = datetime.datetime.now()
-                    print("Moved forward to:" + str(self.servo) + ":" + str(self.pos))
-                elif cur_pos == JoyAxis.LOW and self.pos > JoyAxis.servo_min_pos:
-                    self.pos -= JoyAxis.move_precision
-                    self.last_move_dt = datetime.datetime.now()
-                    print("Moved backward to:" + str(self.servo) + ":" + str(self.pos))
+            if cur_pos == JoyAxis.HIGH and self.pos < JoyAxis.servo_max_pos:
+                self.pos += JoyAxis.move_precision
+                print("Moved forward to:" + str(self.servo) + ":" + str(self.pos))
+            elif cur_pos == JoyAxis.LOW and self.pos > JoyAxis.servo_min_pos:
+                self.pos -= JoyAxis.move_precision
+                print("Moved backward to:" + str(self.servo) + ":" + str(self.pos))
 
         return self.pos
