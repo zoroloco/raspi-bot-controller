@@ -10,7 +10,7 @@ class JoyAxis:
     HIGH = 1
     LOW = 0
     degree = 33.3  # 33.3 in the [3000-9000] range is = to 1 degree in the [0-180] range.
-    move_precision = degree * 1  # This is how much to move per toggle.
+    move_precision = degree * 5  # This is how much to move per toggle.
 
     def __init__(self, servo):
         self.servo = servo
