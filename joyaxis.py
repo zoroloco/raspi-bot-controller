@@ -1,7 +1,5 @@
 # This class will maintain state of an axis of a joystick. This pretty much represents one servo (x or y).
 
-import datetime
-
 
 class JoyAxis:
     move_time_threshold_ms = 0  # Threshold of time in ms to act upon since last move.

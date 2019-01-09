@@ -39,11 +39,17 @@ void setup() {
 void loop() {
   //Serial.println(j1XLabel+mapPosition(analogRead(j1x)));//5958
   //Serial.println(j1YLabel+mapPosition(analogRead(j1y)));//6023-6029
-  //Serial.println(j2XLabel+mapPosition(analogRead(j2x)));//6052-6058
-  //Serial.println(j2YLabel+mapPosition(analogRead(j2y)));//5871
-  //Serial.println(j3XLabel+mapPosition(analogRead(j3x)));
-  //Serial.println(j3YLabel+mapPosition(analogRead(j3y)));
+  //Serial.println(j2XLabel+mapPosition(analogRead(j2x)));//5871
+  //Serial.println(j2YLabel+mapPosition(analogRead(j2y)));//6052-6058
+  //Serial.println(j3XLabel+mapPosition(analogRead(j3x)));//5970
+  //Serial.println(j3YLabel+mapPosition(analogRead(j3y)));//5865
 
+  //readJ1();
+  readJ2();
+  readJ3();
+}
+
+void readJ1(){
   int j1xCurrent = mapPosition(analogRead(j1x));
   if(j1xCurrent > 5965){
     Serial.println(j1XLabel+"1");
@@ -65,38 +71,54 @@ void loop() {
   else{
     Serial.println(j1YLabel+"-1");
   }
- 
-  int j2xCurrent = mapPosition(analogRead(j2x));
-  if(j2xCurrent > 6065){
-    Serial.println(j2XLabel+"1");  
-  }
-  else if(j2xCurrent < 6040){
-    Serial.println(j2XLabel+"0");  
-  }
-  else{
-    Serial.println(j2XLabel+"-1");
-  }
-  
+}
+
+void readJ2(){
   int j2yCurrent = mapPosition(analogRead(j2y));
-  if(j2yCurrent > 5880){
-    Serial.println(j2YLabel+"1");
+  if(j2yCurrent > 6065){
+    Serial.println(j2YLabel+"1");  
   }
-  else if(j2yCurrent < 5860){
-    Serial.println(j2YLabel+"0"); 
+  else if(j2yCurrent < 6045){
+    Serial.println(j2YLabel+"0");  
   }
   else{
     Serial.println(j2YLabel+"-1");
   }
-
-/*
-  int j3xCurrent = analogRead(j3x);
-  Serial.println(j3XLabel+"1");
-  Serial.println(j3XLabel+"0");
   
-  int j3yCurrent = analogRead(j3y);
-  Serial.println(j3YLabel+"1");
-  Serial.println(j3YLabel+"0");
-*/
+  int j2xCurrent = mapPosition(analogRead(j2x));
+  if(j2xCurrent > 5880){
+    Serial.println(j2XLabel+"1");
+  }
+  else if(j2xCurrent < 5860){
+    Serial.println(j2XLabel+"0"); 
+  }
+  else{
+    Serial.println(j2XLabel+"-1");
+  }
+}
+
+void readJ3(){
+    int j3xCurrent = mapPosition(analogRead(j3x));
+  if(j3xCurrent > 5978){
+    Serial.println(j3XLabel+"1");
+  }
+  else if(j3xCurrent < 5960){
+    Serial.println(j3XLabel+"0");
+  }
+  else{
+    Serial.println(j3XLabel+"-1");
+  }
+  
+  int j3yCurrent = mapPosition(analogRead(j3y));
+  if(j3yCurrent > 5875){
+    Serial.println(j3YLabel+"1");
+  }
+  else if(j3yCurrent < 5855){
+    Serial.println(j3YLabel+"0");
+  }
+  else{
+    Serial.println(j3YLabel+"-1");
+  }
 }
 
 //Joystick range is [0-1023]. This must map to servo range of [3000-9000]
